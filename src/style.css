@@ -1,7 +1,7 @@
 body {
-  background: lightskyblue;
+  /* background: lightskyblue; */
 }
 
-#my_title {
-  color: blue;
+h1 {
+  color: purple;
 }

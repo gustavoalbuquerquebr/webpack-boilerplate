@@ -15,13 +15,13 @@ module.exports = {
     contentBase: "./dist",
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html",
-    }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name]-[contentHash].css",
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+      filename: "./index.html",
     }),
   ],
   module: {
@@ -30,12 +30,27 @@ module.exports = {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
+      },
     ],
   },
   optimization: {
     minimizer: [
       new OptimizeCssAssetsWebpackPlugin(),
       new TerserWebpackPlugin(),
+      // new HtmlWebpackPlugin({
+      //   template: "./src/index.html",
+      //   minify: {
+      //     removeAttributeQuotes: true,
+      //     collapseWhitespace: true,
+      //     removeComments: true,
+      //   },
+      // }),
     ],
   },
 };
