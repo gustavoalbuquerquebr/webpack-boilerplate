@@ -1,1 +1,3 @@
-document.querySelector("h1").textContent += "!";
+import "./style.css";
+
+document.querySelector("h1").textContent += "!!!";
