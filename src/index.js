@@ -1,4 +1,4 @@
-import "./style.css";
+import "./style.scss";
 
 document.querySelector("h1").textContent += "!!!";
 
